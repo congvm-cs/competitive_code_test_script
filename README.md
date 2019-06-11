@@ -1,4 +1,4 @@
-# competitive code test script
+# Competitive Code Test Script
 
 ## Introduction
 
