@@ -1,5 +1,11 @@
 import argparse
 
+def assertLength(output, result):
+    assert len(output) == len(result), "Missing answer. Please check input and output files"
+
+def assertValues(output, output_values):
+    for (out, res) in zip(output, output_values):
+        assert out == res, "Your Answer: {} - Answer Key: {}".format(out, res)
 
 def test_app(py_file):
     def mock_input(s):
@@ -29,8 +35,9 @@ def test_app(py_file):
 
     output = [val for val in output if val != '']
 
-    for (out, res) in zip(output, output_values):
-        assert out == res, "your answer: {} - answer key: {}".format(out, res)
+    assertLength(output, output_values)
+    assertValues(output, output_values)
+    
     print("Pass all")
 
 
